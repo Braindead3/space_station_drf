@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "super-ocherednoy-test-proj"
+version = "0.1.0"
+description = ""
+authors = ["vlad <malosay21@gmail.com>"]
+readme = "README.md"
+packages = [{include = "super_ocherednoy_test_proj"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.3"
+djangorestframework = "^3.14.0"
+coverage = "^6.5.0"
+psycopg2-binary = "^2.9.5"
+djangorestframework-simplejwt = "^5.2.2"
+pytest = "^7.2.0"
+django-environ = "^0.9.0"
+drf-spectacular = "^0.24.2"
+pytest-django = "^4.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
