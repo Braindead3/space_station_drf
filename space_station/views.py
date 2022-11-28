@@ -38,12 +38,8 @@ class StationViewSet(viewsets.ModelViewSet):
         if request.method == 'POST':
             ins_ser = InstructionsSerializer(data=request.data)
 
-            if ins_ser.is_valid():
+            if ins_ser.is_valid(raise_exception=True):
                 ins_ser.save()
-            else:
-                return Response(data={
-                    'errors': ins_ser.errors
-                }, status=status.HTTP_400_BAD_REQUEST)
 
         station: Station = Station.objects.get(pk=pk)
         return Response(data={

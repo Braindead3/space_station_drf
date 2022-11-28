@@ -10,17 +10,6 @@ class StationSerializer(serializers.ModelSerializer):
 
 
 class InstructionsSerializer(serializers.ModelSerializer):
-    def save(self, **kwargs):
-        if self.is_valid():
-            instruction = Instructions(user=self.validated_data['user'],
-                                       station=self.validated_data['station'],
-                                       axis=self.validated_data['axis'],
-                                       distance=self.validated_data['distance'])
-            instruction.save()
-            return instruction
-        else:
-            return self.errors
-
     class Meta:
         model = Instructions
         fields = ['user', 'station', 'axis', 'distance']
