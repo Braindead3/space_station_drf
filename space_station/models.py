@@ -13,8 +13,12 @@ class Station(models.Model):
         y - положение по y
         z - положение по z
     """
+    class State(models.TextChoices):
+        running = 'Running', 'Running'
+        broken = 'Broken', 'Broken'
+
     name = models.CharField(max_length=30, null=True)
-    state = models.CharField(max_length=30, default='running')
+    state = models.CharField(max_length=30, choices=State.choices, default=State.running)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     destroyed_time = models.DateTimeField(null=True)
     x = models.IntegerField(default=100)

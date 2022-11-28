@@ -28,5 +28,5 @@ def instruction_created_handler(sender, instance, created, **kwargs) -> None:
 
 def check_if_station_working(station: Station):
     if station.z < 0 or station.x < 0 or station.y < 0:
-        station.state = 'broken'
+        station.state = station.State.broken
         station.destroyed_time = timezone.now()
